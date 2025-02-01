@@ -12,3 +12,10 @@
     gap: 30px;
     row-gap: 50px;
 }
+.no-results-message {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #666;
+  }

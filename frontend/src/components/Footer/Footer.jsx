@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.css'
 import { assets } from '../../assets/assets'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+  const [menu, setMenu] = useState("home");
   return (
     <div className='footer' id='footer'>
       <div className="footer-content">
@@ -16,19 +18,19 @@ const Footer = () => {
             </div>
         </div>
         <div className="footer-content-center">
-            <h2>COMPANY</h2>
+            <h2>MEAD</h2>
             <ul>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Delivery</li>
-                <li>Privacy policy</li>
+           <li> <Link to="/" onClick={() => {setMenu("home");window.scrollTo(0, 0);}} className={`${menu === "home" ? "active" : ""}`}>Home</Link></li>
+           <li> <Link to="/menu" onClick={() => {setMenu("menu");window.scrollTo(0, 0);}} className={`${menu === "menu" ? "active" : ""}`}>Menu</Link></li>
+            <li><Link to="/Aboutus" onClick={() => {setMenu("Aboutus");window.scrollTo(0, 0);}} className={`${menu === "Aboutus" ? "active" : ""}`}>About us</Link></li>
+                
             </ul>
         </div>
         <div className="footer-content-right">
             <h2>GET IN TOUCH</h2>
             <ul>
-                <li>+1-212-456-7890</li>
-                <li>contact@tomato.com</li>
+                <li>+251 11 681 3645</li>
+                <li>contact@mead.com</li>
             </ul>
         </div>
       </div>

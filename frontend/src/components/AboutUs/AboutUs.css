@@ -1,0 +1,88 @@
+/* About Us Page Styles */
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* About Section */
+  .about-section {
+    padding: 20px;
+  }
+  
+  .about-section h1 {
+    font-size: 2.5rem;
+    color: #ff5733;
+  }
+  
+  .about-section p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  /* Developers Section */
+  .developers-section {
+    margin-top: 40px;
+  }
+  
+  .developers-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Developer Cards - Horizontal Scroll */
+  .developers-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #ff5733 #f3f3f3;
+  }
+  
+  .developer-card {
+    flex: 0 0 auto;
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: start;
+  }
+  
+  .developer-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .developer-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .developer-card p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Scrollbar Customization */
+  .developers-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .developers-container::-webkit-scrollbar-thumb {
+    background-color: #ff5733;
+    border-radius: 10px;
+  }
+  
+  .developers-container::-webkit-scrollbar-track {
+    background: #f3f3f3;
+  }
+  

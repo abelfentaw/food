@@ -29,7 +29,11 @@
     max-width: 120px;
     border: none;
     padding: 10px;
-    background-color: black;
+    background-color: seagreen;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add-btn:hover{
+    background-color: rgb(11, 68, 49);
 }

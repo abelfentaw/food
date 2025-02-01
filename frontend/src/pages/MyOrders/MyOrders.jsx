@@ -20,9 +20,18 @@ const MyOrders = () => {
     }
   },[token])
 
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
+  
+
   return (
     <div className='my-orders'>
-      <h2>My Orders</h2>
+      <div className="header-container">
+      <h2>My Orders</h2> 
+      <button onClick={handleRefresh}> Track Orders</button>
+      </div>
       <div className="container">
         {data.map((order,index)=>{
           return (
@@ -40,7 +49,7 @@ const MyOrders = () => {
                 <p>${order.amount}.00</p>
                 <p>Items: {order.items.length}</p>
                 <p><span>&#x25cf;</span> <b>{order.status}</b></p>
-                <button>Track Order</button>
+                
             </div>
           )
         })}

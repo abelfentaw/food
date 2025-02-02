@@ -46,13 +46,13 @@ const PlaceOrder = () => {
             amount: getTotalCartAmount() + 50,
         }
         let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
-        // if (response.data.success) {
-        //     const { session_url } = response.data;
-        //     window.location.replace(session_url);
-        // }
-        // else {
-        //     toast.error("Something Went Wrong")
-        // }
+        if (response.data.success) {
+            const { session_url } = response.data;
+            window.location.replace(session_url);
+        }
+        else {
+            toast.error("Something Went Wrong")
+        }
     }
 
     useEffect(() => {

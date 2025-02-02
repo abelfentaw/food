@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
+import SearchComponent from '../../components/SearchComponent/SearchComponent'
 
 
 const Menu = () => {
@@ -9,6 +10,7 @@ const Menu = () => {
   return (
     <>
      <ExploreMenu setCategory={setCategory} category={category}/>
+     <SearchComponent />
       <FoodDisplay category={category}/>
       
     </>

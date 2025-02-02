@@ -15,9 +15,7 @@ const AboutUs = () => {
       <section className="about-section">
         <h1>About Us</h1>
         <p>
-          Welcome to <strong>Foodie Express</strong>, your one-stop destination for delicious meals
-          delivered straight to your doorstep. We partner with top restaurants to bring you the best
-          food experience.
+        At MEAD, we're passionate about connecting food lovers with their favorite local flavors. Whether you're craving sizzling burgers, authentic ethnic cuisine, or healthy salads, we bring the restaurant experience to your doorstep. With partnerships across Addis Abeba's top eateries, your culinary adventure is just a few taps away.
         </p>
       </section>
 

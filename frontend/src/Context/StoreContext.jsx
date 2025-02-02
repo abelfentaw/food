@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 import { food_list, menu_list } from "../assets/assets";
 import axios from "axios";
 export const StoreContext = createContext(null);
@@ -8,6 +8,17 @@ const StoreContextProvider = (props) => {
   const [food_list, setFoodList] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
+
+  //addition
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredFoodList = useMemo(() => {
+    return food_list.filter(food => 
+      food.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [food_list, searchQuery]);
+
+  // here
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
@@ -70,6 +81,7 @@ const StoreContextProvider = (props) => {
     }
     loadData();
   }, []);
+  
 
   const contextValue = {
     url,
@@ -83,6 +95,9 @@ const StoreContextProvider = (props) => {
     setToken,
     loadCartData,
     setCartItems,
+    searchQuery,
+    setSearchQuery,
+    filteredFoodList
   };
 
   return (

@@ -84,19 +84,19 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
+        menu_name: "Traditional Ethiopian Favorites",
         menu_image: menu_1
     },
     {
-        menu_name: "Rolls",
+        menu_name: "Global Classics",
         menu_image: menu_2
     },
     {
-        menu_name: "Deserts",
+        menu_name: "Ethiopian Breakfast & Coffee",
         menu_image: menu_3
     },
     {
-        menu_name: "Sandwich",
+        menu_name: "Quick Bites & Street Food",
         menu_image: menu_4
     },
     {
@@ -104,15 +104,15 @@ export const menu_list = [
         menu_image: menu_5
     },
     {
-        menu_name: "Pure Veg",
+        menu_name: "Vegetarian & Vegan Delights",
         menu_image: menu_6
     },
     {
-        menu_name: "Pasta",
+        menu_name: "Sweet Endings & Drinks",
         menu_image: menu_7
     },
     {
-        menu_name: "Noodles",
+        menu_name: "Grilled & BBQ Specials",
         menu_image: menu_8
     }]
 

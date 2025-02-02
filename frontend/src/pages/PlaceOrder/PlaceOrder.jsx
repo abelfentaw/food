@@ -12,11 +12,11 @@ const PlaceOrder = () => {
         firstName: "",
         lastName: "",
         email: "",
-        street: "",
+        //street: "",
         city: "",
-        state: "",
-        zipcode: "",
-        country: "",
+        //state: "",
+        //zipcode: "",
+       // country: "",
         phone: ""
     })
 
@@ -43,16 +43,16 @@ const PlaceOrder = () => {
         let orderData = {
             address: data,
             items: orderItems,
-            amount: getTotalCartAmount() + 5,
+            amount: getTotalCartAmount() + 50,
         }
         let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
-        if (response.data.success) {
-            const { session_url } = response.data;
-            window.location.replace(session_url);
-        }
-        else {
-            toast.error("Something Went Wrong")
-        }
+        // if (response.data.success) {
+        //     const { session_url } = response.data;
+        //     window.location.replace(session_url);
+        // }
+        // else {
+        //     toast.error("Something Went Wrong")
+        // }
     }
 
     useEffect(() => {
@@ -69,19 +69,28 @@ const PlaceOrder = () => {
         <form onSubmit={placeOrder} className='place-order'>
             <div className="place-order-left">
                 <p className='title'>Delivery Information</p>
+
                 <div className="multi-field">
                     <input type="text" name='firstName' onChange={onChangeHandler} value={data.firstName} placeholder='First name' required />
                     <input type="text" name='lastName' onChange={onChangeHandler} value={data.lastName} placeholder='Last name' required />
                 </div>
+
                 <input type="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='Email address' required />
-                <input type="text" name='street' onChange={onChangeHandler} value={data.street} placeholder='Street' required />
+
+                {/* <input type="text" name='street' onChange={onChangeHandler} value={data.street} placeholder='Street' required /> */}
+
                 <div className="multi-field">
-                    <input type="text" name='city' onChange={onChangeHandler} value={data.city} placeholder='City' required />
-                    <input type="text" name='state' onChange={onChangeHandler} value={data.state} placeholder='State' required />
+
+                    <input type="text" name='city' onChange={onChangeHandler} value={data.city} placeholder='Adress' required />
+
+                    {/* <input type="text" name='state' onChange={onChangeHandler} value={data.state} placeholder='State' required /> */}
+
                 </div>
                 <div className="multi-field">
-                    <input type="text" name='zipcode' onChange={onChangeHandler} value={data.zipcode} placeholder='Zip code' required />
-                    <input type="text" name='country' onChange={onChangeHandler} value={data.country} placeholder='Country' required />
+
+                    {/* <input type="text" name='zipcode' onChange={onChangeHandler} value={data.zipcode} placeholder='Zip code' required /> */}
+                    {/* <input type="text" name='country' onChange={onChangeHandler} value={data.country} placeholder='Country' required /> */}
+
                 </div>
                 <input type="text" name='phone' onChange={onChangeHandler} value={data.phone} placeholder='Phone' required />
             </div>
@@ -89,11 +98,11 @@ const PlaceOrder = () => {
                 <div className="cart-total">
                     <h2>Cart Totals</h2>
                     <div>
-                        <div className="cart-total-details"><p>Subtotal</p><p>${getTotalCartAmount()}</p></div>
+                        <div className="cart-total-details"><p>Subtotal</p><p>ETB {getTotalCartAmount()}</p></div>
                         <hr />
-                        <div className="cart-total-details"><p>Delivery Fee</p><p>${getTotalCartAmount() === 0 ? 0 : 5}</p></div>
+                        <div className="cart-total-details"><p>Delivery Fee</p><p>ETB {getTotalCartAmount() === 0 ? 0 : 50}</p></div>
                         <hr />
-                        <div className="cart-total-details"><b>Total</b><b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 5}</b></div>
+                        <div className="cart-total-details"><b>Total</b><b>ETB {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 50}</b></div>
                     </div>
                 </div>
                 <button className='place-order-submit' type='submit'>Proceed To Payment</button>

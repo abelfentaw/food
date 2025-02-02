@@ -12,9 +12,15 @@ const Footer = () => {
             <img src={assets.logo} alt="" />
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             <div className="footer-social-icons">
-                <img src={assets.facebook_icon} alt="" />
-                <img src={assets.twitter_icon} alt="" />
-                <img src={assets.linkedin_icon} alt="" />
+            <a href="https://www.facebook.com/YourPageName" target="_blank" rel="noopener noreferrer">
+    <img src={assets.facebook_icon} alt="Facebook icon" />
+  </a>
+  <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer">
+    <img src={assets.twitter_icon} alt="Twitter icon" />
+  </a>
+  <a href="https://www.linkedin.com/in/YourProfile" target="_blank" rel="noopener noreferrer">
+    <img src={assets.linkedin_icon} alt="LinkedIn icon" />
+  </a>
             </div>
         </div>
         <div className="footer-content-center">
@@ -35,7 +41,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <p className="footer-copyright">Copyright 2024 © Tomato.com - All Right Reserved.</p>
+      <p className="footer-copyright">Copyright 2025 © MEAD.com - All Right Reserved.</p>
     </div>
   )
 }

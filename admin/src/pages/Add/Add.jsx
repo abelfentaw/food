@@ -10,7 +10,7 @@ const Add = () => {
         name: "",
         description: "",
         price: "",
-        category: "Salad"
+        category: "Traditional Ethiopian Favorites"
     });
 
     const [image, setImage] = useState(false);
@@ -30,7 +30,7 @@ const Add = () => {
                 name: "",
                 description: "",
                 price: "",
-                category: "Salad"
+                category: "Traditional Ethiopian Favorites"
             })
             setImage(false);
         }
@@ -67,19 +67,19 @@ const Add = () => {
                     <div className='add-category flex-col'>
                         <p>Product category</p>
                         <select name='category' onChange={onChangeHandler} >
-                            <option value="Salad">Salad</option>
-                            <option value="Rolls">Rolls</option>
-                            <option value="Deserts">Deserts</option>
-                            <option value="Sandwich">Sandwich</option>
+                            <option value="Traditional Ethiopian Favorites">Traditional Ethiopian Favorites</option>
+                            <option value="Global Classics">Global Classics</option>
+                            <option value="Ethiopian Breakfast & Coffee">Ethiopian Breakfast & Coffee</option>
+                            <option value="Quick Bites & Street Food">Quick Bites & Street Food</option>
                             <option value="Cake">Cake</option>
-                            <option value="Pure Veg">Pure Veg</option>
-                            <option value="Pasta">Pasta</option>
-                            <option value="Noodles">Noodles</option>
+                            <option value="Vegetarian & Vegan Delights">Vegetarian & Vegan Delights</option>
+                            <option value="Sweet Endings & Drinks">Sweet Endings & Drinks</option>
+                            <option value="Grilled & BBQ Specials"> Grilled & BBQ Specials</option>
                         </select>
                     </div>
                     <div className='add-price flex-col'>
                         <p>Product Price</p>
-                        <input type="Number" name='price' onChange={onChangeHandler} value={data.price} placeholder='$25' />
+                        <input type="Number" name='price' onChange={onChangeHandler} value={data.price} placeholder='ETB ' required />
                     </div>
                 </div>
                 <button type='submit' className='add-btn' >ADD</button>

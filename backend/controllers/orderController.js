@@ -1,56 +1,64 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js"
 import Stripe from "stripe";
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+import axios from "axios"
 // Placing User Order for Frontend
-const placeOrder = async (req, res) => {
+const CHAPA_SECRET_KEY = process.env.CHAPA_SECRET_KEY
 
+const placeOrder = async (req, res) => {
     try {
+        // Create new order in your database
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
             amount: req.body.amount,
             address: req.body.address,
-        })
+        });
         await newOrder.save();
+
+        // Clear user's cart after placing order
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
-        const line_items = req.body.items.map((item) => ({
-            price_data: {
-              currency: "inr",
-              product_data: {
-                name: item.name
-              },
-              unit_amount: item.price*100*80
-            },
-            quantity: item.quantity
-          }))
+        // Prepare Chapa payment details
+        const tx_ref = `order_${newOrder._id}_${Date.now()}`;  // Unique transaction reference
+        const amount = req.body.amount; // Total amount
+        const email = req.body.email; // Customer email
+        const first_name = req.body.first_name || "Customer"; // Optional first name
+        const last_name = req.body.last_name || "Anonymous"; // Optional last name
+        const currency = "ETB"; // Ethiopian Birr (Chapa supports ETB)
+        const callback_url = `http://localhost:4000/payment-success?orderId=${newOrder._id}`;
+        const return_url = `http://localhost:5173/payment-return?orderId=${newOrder._id}`;
 
-        line_items.push({
-            price_data:{
-                currency:"inr",
-                product_data:{
-                    name:"Delivery Charge"
-                },
-                unit_amount: 5*80*100
+        // Send request to Chapa API
+        const chapaResponse = await axios.post(
+            "https://api.chapa.co/v1/transaction/initialize",
+            {
+                amount,
+                currency,
+                email,
+                first_name,
+                last_name,
+                tx_ref,
+                callback_url,
+                return_url
             },
-            quantity:1
-        })
-        
-          const session = await stripe.checkout.sessions.create({
-            success_url: `https://food-delivery-website-gamma.vercel.app/verify?success=true&orderId=${newOrder._id}`,
-            cancel_url: `https://food-delivery-website-gamma.vercel.app/verify?success=false&orderId=${newOrder._id}`,
-            line_items: line_items,
-            mode: 'payment',
-          });
-      
-          res.json({success:true,session_url:session.url});
+            {
+                headers: {
+                    Authorization: `Bearer ${CHAPA_SECRET_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        // Respond with Chapa's checkout URL
+        res.json({ success: true, session_url: chapaResponse.data.data.checkout_url });
 
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" })
+        console.error("Chapa Payment Error:", error.response?.data || error.message);
+        res.status(500).json({ success: false, message: "Payment failed" });
     }
-}
+};
+
 
 // Listing Order for Admin panel
 const listOrders = async (req, res) => {

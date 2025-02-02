@@ -42,7 +42,7 @@ const getCart = async (req, res) => {
     res.json({ success: true, cartData: cartData });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: "HELLO" });
+    res.json({ success: false, message: "Error" });
   }
 };
 

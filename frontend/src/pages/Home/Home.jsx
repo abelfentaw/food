@@ -13,7 +13,7 @@ const Home = () => {
   const [category,setCategory] = useState("All")
   const context = useContext(StoreContext)
 
-  const limitedList = (context.food_list || []).slice(-10)
+  const limitedList = (context.food_list || []).slice(-12)
 
   return (
     <>

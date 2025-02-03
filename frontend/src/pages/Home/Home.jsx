@@ -9,6 +9,7 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks'
 
 const Home = () => {
 
+
   const [category,setCategory] = useState("All")
   const context = useContext(StoreContext)
 

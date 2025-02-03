@@ -9,6 +9,8 @@ const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
 
+
+
   //addition
   const [searchQuery, setSearchQuery] = useState("");
 

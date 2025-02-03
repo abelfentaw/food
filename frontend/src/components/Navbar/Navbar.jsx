@@ -16,6 +16,7 @@ const Navbar = ({ setShowLogin }) => {
     navigate('/')
   }
 
+ 
   return (
     <div className='navbar'>
       <Link to='/' onClick={() => setShowMobileMenu(false)}>

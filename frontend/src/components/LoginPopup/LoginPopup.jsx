@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../Context/StoreContext'
@@ -15,6 +15,11 @@ const LoginPopup = ({ setShowLogin }) => {
         email: "",
         password: ""
     })
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+    
 
     const onChangeHandler = (event) => {
         const name = event.target.name

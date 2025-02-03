@@ -27,7 +27,7 @@ const placeOrder = async (req, res) => {
         const last_name = req.body.last_name || "Anonymous"; // Optional last name
         const currency = "ETB"; // Ethiopian Birr (Chapa supports ETB)
         const callback_url = `http://localhost:4000/payment-success?orderId=${newOrder._id}`;
-        const return_url = `http://localhost:5173/payment-return?orderId=${newOrder._id}`;
+        const return_url = `http://localhost:5173/myorders?orderId=${newOrder._id}`;
 
         // Send request to Chapa API
         const chapaResponse = await axios.post(

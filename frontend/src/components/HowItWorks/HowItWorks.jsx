@@ -15,18 +15,18 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      title: "Browse Restaurants",
-      text: "Explore diverse cuisines from top local eateries"
+      title: "Discover Flavors",
+      text: "Dive into our curated selection of signature dishes "
     },
     {
       
-      title: "Customize & Order",
-      text: "Build your meal with special instructions"
+      title: "Swift Selection",
+      text: "Add your favorites in seconds. Our pre-crafted dishes are kitchen-ready, ensuring consistent quality with every order."
     },
     {
       
-      title: "Real-Time Tracking",
-      text: "Follow your order from kitchen to doorstep"
+      title: "Seamless Checkout",
+      text: "Review your order and pay securely."
     },
     {
       
